@@ -1,4 +1,4 @@
-package com.rezarahmani.eventprocessing.service;
+package com.rezarahmani.eventprocessing.service.kafka;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -12,7 +12,7 @@ public class KafkaMessageSender {
     private final KafkaTemplate<String, String> kafkaTemplate;
 
 
-    public void sendImpressingMessage(String topicName,String message) {
+    public void sendAdvertisingMessage(String topicName, String message) {
         kafkaTemplate.send(topicName, message);
     }
 }
