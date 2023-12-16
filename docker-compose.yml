@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+
+  cassandra:
+    container_name: cassandra
+    image: cassandra:latest
+    network_mode: "host"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=cloudinfra
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    network_mode: "host"
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    network_mode: "host"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: localhost:2181
+
+  event-processing:
+    image: event-processing
+    container_name: event-processing
+    network_mode: "host"
+    depends_on:
+      - cassandra
+      - zookeeper
+      - kafka
+    environment:
+      - "SPRING_PROFILES_ACTIVE=production"
+
+

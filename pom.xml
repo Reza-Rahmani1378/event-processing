@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.reza-rahmani</groupId>
 	<artifactId>event-processing</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>event-processing</name>
 	<description>Demo project for Tapsell Company</description>
 	<properties>
